@@ -6,18 +6,22 @@ import authRoutes from "./routes/authRoute.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.js";
-import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from 'path';
+import path from 'path'; // Import the 'path' module
 
 dotenv.config();
 
 connectDB();
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/build"))); // Use the 'path' module here
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);

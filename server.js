@@ -13,8 +13,8 @@ import path from 'path'; // Import the 'path' module
 dotenv.config();
 
 connectDB();
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 

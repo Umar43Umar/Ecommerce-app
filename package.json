@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix ./client",
-    "build": "concurrently \"npm run start\" \"npm run client\""
+    "client": "cd client && npm run start",
+    "build": "cd client && npm run build",
+    "dev": "npm run start & npm run client"
   },
   "keywords": [],
   "author": "Umar",
